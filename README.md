@@ -4,9 +4,12 @@
 
 Selamat datang di Modern Expense Tracker, sebuah aplikasi web single-page yang dirancang untuk membantu pengguna mengelola keuangan pribadi dengan antarmuka yang bersih, modern, dan intuitif. Proyek ini dibangun dari nol menggunakan teknologi web fundamental (HTML, CSS, JavaScript) dan ditenagai oleh Chart.js untuk visualisasi data yang interaktif.
 
+---
 
+### 🖼️ Tampilan Website
+![Screenshot Portofolio](https://raw.githubusercontent.com/BernardusBima/modern-expense-tracker-app/main/images/HalamanUtama.png)
 
-**Penting:** Sangat disarankan untuk mengganti gambar di atas dengan screenshot hasil karyamu sendiri!
+---
 
 
 ## ✨ Fitur Utama
