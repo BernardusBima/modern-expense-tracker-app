@@ -7,7 +7,7 @@ Selamat datang di Modern Expense Tracker, sebuah aplikasi web single-page yang d
 ---
 
 ### 🖼️ Tampilan Website
-![Screenshot Portofolio](https://raw.githubusercontent.com/BernardusBima/modern-expense-tracker-app/main/images/HalamanUtama.png)
+![Screenshot Portofolio](https://raw.githubusercontent.com/BernardusBima/modern-expense-tracker-app/main/images/HalamanUtama.jpeg)
 
 ---
 
