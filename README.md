@@ -1,5 +1,7 @@
 # 📊 Modern Expense Tracker App
 
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge&logo=github)](https://bernardusbima.github.io/modern-expense-tracker-app/)
+
 Selamat datang di Modern Expense Tracker, sebuah aplikasi web single-page yang dirancang untuk membantu pengguna mengelola keuangan pribadi dengan antarmuka yang bersih, modern, dan intuitif. Proyek ini dibangun dari nol menggunakan teknologi web fundamental (HTML, CSS, JavaScript) dan ditenagai oleh Chart.js untuk visualisasi data yang interaktif.
 
 
