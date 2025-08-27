@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker Pro v3 - Modern UI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="left-panel">
+            <header>
+                <h2><i class="fas fa-wallet"></i> ExpensePro</h2>
+            </header>
+
+            <div class="balance-card card">
+                <h4>Saldo Anda</h4>
+                <h1 id="balance">Rp 0</h1>
+            </div>
+
+            <div class="summary-cards">
+                <div class="income-card card">
+                    <div class="card-icon income-icon">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    <div class="card-info">
+                        <h4>Pemasukan</h4>
+                        <p id="money-plus">+Rp 0</p>
+                    </div>
+                </div>
+                <div class="expense-card card">
+                     <div class="card-icon expense-icon">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                    <div class="card-info">
+                        <h4>Pengeluaran</h4>
+                        <p id="money-minus">-Rp 0</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-container card">
+                <h3><i class="fas fa-plus-circle"></i> Transaksi Baru</h3>
+                <form id="form">
+                    <div class="form-control">
+                        <input type="text" id="text" placeholder="Deskripsi transaksi..." required>
+                    </div>
+                    <div class="form-control">
+                        <input type="number" id="amount" placeholder="Jumlah (contoh: 50000)" min="0" required>
+                    </div>
+                    <div class="transaction-type">
+                        <input type="radio" id="type-income" name="transaction_type" value="income" checked>
+                        <label for="type-income" class="type-label income-label">
+                            <i class="fas fa-plus"></i> Pemasukan
+                        </label>
+                        <input type="radio" id="type-expense" name="transaction_type" value="expense">
+                        <label for="type-expense" class="type-label expense-label">
+                            <i class="fas fa-minus"></i> Pengeluaran
+                        </label>
+                    </div>
+                    <button class="btn">Tambah Transaksi</button>
+                </form>
+            </div>
+
+            <div class="signature">
+                <p><i class="fas fa-code"></i> Dibuat oleh Bernardus Bima &copy; 2025</p>
+            </div>
+            
+        </div>
+        
+
+        <div class="right-panel">
+            <div class="history-container">
+                <h3><i class="fas fa-history"></i> Riwayat Transaksi</h3>
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">Semua</button>
+                    <button class="filter-btn" data-filter="income">Pemasukan</button>
+                    <button class="filter-btn" data-filter="expense">Pengeluaran</button>
+                </div>
+                <ul id="list" class="list">
+                    </ul>
+            </div>
+
+            <div class="chart-container">
+                 <h3><i class="fas fa-chart-pie"></i> Visualisasi Data</h3>
+                 <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div id="edit-modal" class="modal-container">
+        <div class="modal">
+            <h3>Edit Transaksi</h3>
+            <form id="edit-form">
+                <input type="hidden" id="edit-id">
+                <div class="form-control">
+                    <label for="edit-text">Deskripsi Baru</label>
+                    <input type="text" id="edit-text" required>
+                </div>
+                <div class="form-control">
+                    <label for="edit-amount">Jumlah Baru (Gunakan - untuk pengeluaran)</label>
+                    <input type="number" id="edit-amount" required>
+                </div>
+                <div class="modal-buttons">
+                    <button type="button" id="cancel-btn" class="btn btn-cancel">Batal</button>
+                    <button type="submit" class="btn">Simpan Perubahan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+:root {
+    --bg-color: #1a1a2e;
+    --panel-color-left: #16213e;
+    --panel-color-right: #f4f7fc;
+    --card-color: rgba(255, 255, 255, 0.05);
+    --text-color-light: #e0e0e0;
+    --text-color-dark: #333;
+    --primary-accent: #0f3460;
+    --color-plus: #2ecc71;
+    --color-minus: #e74c3c;
+    --border-radius: 15px;
+    --box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.app-container {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 30px;
+    width: 100%;
+    max-width: 1400px;
+    height: 95vh;
+    max-height: 850px; 
+    background: var(--panel-color-left);
+    border-radius: var(--border-radius);
+    overflow: hidden; 
+}
+
+.left-panel, .right-panel {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; 
+    padding: 30px;
+}
+.left-panel {
+    gap: 20px;
+}
+.right-panel {
+    background: var(--panel-color-right);
+    color: var(--text-color-dark);
+    border-radius: var(--border-radius);
+    gap: 20px;
+}
+
+.left-panel header h2 {
+    font-weight: 600;
+}
+
+.card {
+    background: var(--card-color);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    flex-shrink: 0;
+}
+
+.balance-card h4 {
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+.balance-card h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.summary-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.summary-cards .card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.card-icon {
+    font-size: 1.2em;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.income-icon { background-color: var(--color-plus); }
+.expense-icon { background-color: var(--color-minus); }
+
+.card-info h4 { font-weight: 400; }
+.card-info p { font-weight: 600; font-size: 1.1em; }
+
+.form-container h3 { font-weight: 600; margin-bottom: 15px; }
+.form-control { margin-bottom: 10px; }
+
+input[type='text'], input[type='number'] {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--text-color-light);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+}
+input::placeholder { color: rgba(255, 255, 255, 0.5); }
+input:focus { outline: 1px solid var(--color-plus); }
+
+.transaction-type {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+}
+.transaction-type input[type="radio"] { display: none; }
+.type-label {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.transaction-type input[type="radio"]:checked + .type-label {
+    color: white;
+    font-weight: 600;
+}
+.income-label { border-color: var(--color-plus); }
+.expense-label { border-color: var(--color-minus); }
+input#type-income:checked + .income-label { background: var(--color-plus); }
+input#type-expense:checked + .expense-label { background: var(--color-minus); }
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, var(--color-plus), #27ae60);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+.btn:hover { transform: scale(1.02); }
+
+.history-container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    flex-grow: 1;
+}
+.history-container h3 { margin-bottom: 10px; }
+.filter-container { margin-bottom: 10px; display: flex; gap: 10px; }
+.filter-btn {
+    background: #e9eef6;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-family: 'Poppins';
+    cursor: pointer;
+    flex-shrink: 0;
+}
+.filter-btn.active {
+    background: var(--primary-accent);
+    color: white;
+    font-weight: 600;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+.list li {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-left: 5px solid;
+}
+.list-icon { font-size: 1.1em; }
+.transaction-text { font-weight: 500; }
+.transaction-amount { font-weight: 600; text-align: right; }
+
+.list li.plus { border-left-color: var(--color-plus); }
+.list li.minus { border-left-color: var(--color-minus); }
+.action-buttons { display: flex; gap: 10px; }
+.edit-btn, .delete-btn {
+    background: none; border: none; cursor: pointer;
+    font-size: 1.1em; opacity: 0.6; transition: opacity 0.2s ease;
+}
+.edit-btn { color: #f0ad4e; }
+.delete-btn { color: var(--color-minus); }
+.edit-btn:hover, .delete-btn:hover { opacity: 1; }
+
+.chart-container {
+    height: 250px;
+    flex-shrink: 0;
+}
+
+.left-panel::-webkit-scrollbar, .right-panel::-webkit-scrollbar, .list::-webkit-scrollbar { width: 8px; }
+.left-panel::-webkit-scrollbar-track, .right-panel::-webkit-scrollbar-track, .list::-webkit-scrollbar-track { background: transparent; }
+.left-panel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+.right-panel::-webkit-scrollbar-thumb, .list::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+.left-panel::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.4); }
+.right-panel::-webkit-scrollbar-thumb:hover, .list::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+
+.modal-container {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); display: none;
+    align-items: center; justify-content: center; z-index: 1000;
+}
+.modal-container.show { display: flex; }
+.modal {
+    background: white; color: var(--text-color-dark);
+    padding: 30px; border-radius: 15px; width: 90%; max-width: 400px;
+}
+.modal .btn-cancel { background: #777; }
+.modal .btn-cancel:hover { background: #555; }
+.modal .modal-buttons { display: flex; gap: 10px; margin-top: 20px; }
+
+/* === TANDA TANGAN / SIGNATURE (ADA DI SINI) === */
+.signature {
+    margin-top: auto; 
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.8em;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.signature i {
+    margin-right: 8px;
+}
